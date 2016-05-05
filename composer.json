@@ -1,0 +1,7 @@
+{
+    "name": "aceougi/sender",
+    "type": "library",
+    "require": {
+        "php": "^7.0"
+    }
+}

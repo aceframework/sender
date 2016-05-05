@@ -2,6 +2,13 @@
     "name": "aceougi/sender",
     "type": "library",
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "psr/http-message-implementation": "*"
+    },
+    "require-dev": {
+        "zendframework/zend-diactoros": "*"
+    },
+    "autoload": {
+        "classmap": ["src/Sender.php"]
     }
 }

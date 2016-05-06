@@ -12,10 +12,10 @@ class Sender
      */
     public static function sendStatus(Response $response)
     {
-        header(sprintf('HTTP/%s %d %s',
+        header(sprintf('HTTP/%s %d%s',
             $response->getProtocolVersion(),
             $response->getStatusCode(),
-            $response->getReasonPhrase()
+            ($reason_phrase = $response->getReasonPhrase()) ? ' '.$reason_phrase : ''
         ));
     }
 

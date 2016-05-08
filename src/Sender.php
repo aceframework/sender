@@ -23,10 +23,10 @@ class Sender
     {
         foreach ($response->getHeaders() as $header_name => $header_values)
         {
-            if ($header_value = array_shift($header_values))
+            if (($header_value = array_shift($header_values)) !== null)
                 header(sprintf('%s: %s', $header_name, $header_value));
 
-            while ($header_value = array_shift($header_values))
+            while (($header_value = array_shift($header_values)) !== null)
                 header(sprintf('%s: %s', $header_name, $header_value), false);
         }
     }

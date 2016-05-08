@@ -44,9 +44,9 @@ class Sender
      */
     public static function send(\Psr\Http\Message\ResponseInterface $response)
     {
-        self::sendStatus($response);
-        self::sendHeaders($response);
-        self::sendBody($response);
+        static::sendStatus($response);
+        static::sendHeaders($response);
+        static::sendBody($response);
     }
 
     /**

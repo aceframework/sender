@@ -33,7 +33,10 @@ class Sender
      */
     public static function sendBody(\Psr\Http\Message\ResponseInterface $response)
     {
+        @ob_clean();
         echo $response->getBody();
+        @ob_flush();
+        flush();
     }
 
     /**
@@ -41,12 +44,9 @@ class Sender
      */
     public static function send(\Psr\Http\Message\ResponseInterface $response)
     {
-        @ob_clean();
         self::sendStatus($response);
         self::sendHeaders($response);
         self::sendBody($response);
-        @ob_flush();
-        flush();
     }
 
     /**

@@ -6,7 +6,8 @@
         "psr/http-message-implementation": "*"
     },
     "require-dev": {
-        "zendframework/zend-diactoros": "*"
+        "zendframework/zend-diactoros": "*",
+        "phpunit/phpunit": "*"
     },
     "autoload": {
         "classmap": ["src/Sender.php"]

@@ -2,15 +2,12 @@
 
 namespace AceOugi;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-
 class Sender
 {
     /**
-     * @param Response $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      */
-    public static function sendStatus(Response $response)
+    public static function sendStatus(\Psr\Http\Message\ResponseInterface $response)
     {
         header(sprintf('HTTP/%s %d%s',
             $response->getProtocolVersion(),
@@ -20,9 +17,9 @@ class Sender
     }
 
     /**
-     * @param Response $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      */
-    public static function sendHeaders(Response $response)
+    public static function sendHeaders(\Psr\Http\Message\ResponseInterface $response)
     {
         foreach ($response->getHeaders() as $header_name => $header_values)
         {
@@ -35,17 +32,17 @@ class Sender
     }
 
     /**
-     * @param Response $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      */
-    public static function sendBody(Response $response)
+    public static function sendBody(\Psr\Http\Message\ResponseInterface $response)
     {
         echo $response->getBody();
     }
 
     /**
-     * @param Response $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      */
-    public static function send(Response $response)
+    public static function send(\Psr\Http\Message\ResponseInterface $response)
     {
         @ob_clean();
         self::sendStatus($response);
@@ -56,17 +53,17 @@ class Sender
     }
 
     /**
-     * @param Request $request
-     * @param Response $response
-     * @param callable $next
-     * @return Response
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param callable|null $next
+     * @return mixed
      */
-    public function __invoke(Request $request, Response $response, callable $next = null)
+    public function __invoke(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, callable $next = null)
     {
         if ($next)
             $response = $next($request, $response);
 
-        if ($response instanceof Response)
+        if ($response instanceof \Psr\Http\Message\ResponseInterface)
             $this->send($response);
 
         return $response;

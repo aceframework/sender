@@ -21,11 +21,15 @@ class Sender
      */
     public static function sendHeaders(\Psr\Http\Message\ResponseInterface $response)
     {
-        header_remove();
-
         foreach ($response->getHeaders() as $header_name => $header_values)
+        {
+            $replace = true;
             foreach ($header_values as $header_value)
-                header(sprintf('%s: %s', $header_name, $header_value), false);
+            {
+                header(sprintf('%s: %s', $header_name, $header_value), $replace);
+                $replace = false;
+            }
+        }
     }
 
     /**

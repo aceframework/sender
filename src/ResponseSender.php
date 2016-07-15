@@ -2,7 +2,7 @@
 
 namespace Ace;
 
-class Sender
+class ResponseSender
 {
     /**
      * @param \Psr\Http\Message\ResponseInterface $response

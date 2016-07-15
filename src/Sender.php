@@ -1,6 +1,6 @@
 <?php
 
-namespace AceOugi;
+namespace Ace;
 
 class Sender
 {

@@ -1,5 +1,5 @@
 {
-    "name": "aceougi/sender",
+    "name": "ace/sender",
     "type": "library",
     "require": {
         "php": "^7.0",

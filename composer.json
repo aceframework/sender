@@ -10,6 +10,6 @@
         "phpunit/phpunit": "*"
     },
     "autoload": {
-        "classmap": ["src/Sender.php", "src/SenderMiddleware.php"]
+        "classmap": ["src/Ace/Sender.php", "src/Ace/SenderMiddleware.php"]
     }
 }

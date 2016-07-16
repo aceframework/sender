@@ -1,5 +1,5 @@
 {
-    "name": "ace/response-sender",
+    "name": "ace/sender",
     "type": "library",
     "require": {
         "php": "^7.0",
@@ -10,6 +10,6 @@
         "phpunit/phpunit": "*"
     },
     "autoload": {
-        "classmap": ["src/ResponseSender.php"]
+        "classmap": ["src/Sender.php"]
     }
 }
